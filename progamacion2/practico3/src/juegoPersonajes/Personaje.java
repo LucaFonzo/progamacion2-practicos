@@ -5,45 +5,36 @@ import java.util.ArrayList;
 public class Personaje {
     private String nombreReal;
     private String nombreSuperHeroe;
-    private int visionNocturna;
-    private int velocidad;
-    private int fuerza;
-    private int peso;
-    private int altura;
-    private int edad;
 
-    public Personaje(String nombreReal,String nombreSuperHeroe,int visionNocturna,int velocidad,int fuerza,int peso,int altura,int edad){
+    private ArrayList<Cualidad> cualidades;
+
+    public Personaje(String nombreReal,String nombreSuperHeroe){
         this.nombreReal = nombreReal;
         this.nombreSuperHeroe = nombreSuperHeroe;
-        this.visionNocturna = visionNocturna;
-        this.velocidad = velocidad;
-        this.fuerza = fuerza;
-        this.peso = peso;
-        this.altura = altura;
-        this.edad = edad;
+        this.cualidades = new ArrayList<>();
     }
 
-    public double getVisionNocturna() {
-        return visionNocturna;
+    public String getNombreReal() {
+        return nombreReal;
     }
 
-    public double getVelocidad() {
-        return velocidad;
+    public void setNombreReal(String nombreReal) {
+        this.nombreReal = nombreReal;
     }
 
-    public double getFuerza() {
-        return fuerza;
+    public String getNombreSuperHeroe() {
+        return nombreSuperHeroe;
     }
 
-    public double getPeso() {
-        return peso;
+    public void setNombreSuperHeroe(String nombreSuperHeroe) {
+        this.nombreSuperHeroe = nombreSuperHeroe;
     }
 
-    public double getAltura() {
-        return altura;
-    }
+    public Cualidad elegirCualidad(){
+        return this.cualidades.get(0);
+    } //Tendria que poder retornar cualquiera de sus cualidades
 
-    public int getEdad() {
-        return edad;
+    public ArrayList<Cualidad> getCualidades(){
+        return new ArrayList<>(this.cualidades);
     }
 }

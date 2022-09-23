@@ -35,7 +35,7 @@ public class Empleado {
     }
 
     public ArrayList<Encuesta> getEncuestasRealizadas() {
-        return encuestasRealizadas;
+        return new ArrayList<>(encuestasRealizadas);
     }
 
     public double getSueldo() {
