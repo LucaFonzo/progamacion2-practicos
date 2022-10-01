@@ -12,13 +12,13 @@ public class Persona {
         this.encuestasRealizadas = new ArrayList<>();
     }
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
     public int getDni() {
-        return dni;
+        return this.dni;
     }
     public ArrayList<Encuesta> getEncuestasRealizadas() {
-        return encuestasRealizadas;
+        return this.encuestasRealizadas;
     }
     public void realizarEncuesta(Encuesta encuesta){
         for (int i = 0;i < encuestasRealizadas.size();i++){

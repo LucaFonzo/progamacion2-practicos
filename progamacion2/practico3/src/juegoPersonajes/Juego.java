@@ -1,55 +1,42 @@
 package juegoPersonajes;
 
-public class Juego {
-    private Personaje p1, p2;
+import java.util.ArrayList;
 
-    public Juego(Personaje p1, Personaje p2) {
-        this.p1 = p1;
-        this.p2 = p2;
+public class Juego {
+    private ArrayList<Personaje> jugadores;
+    private ArrayList<Cualidad> cualidadesAJugar;
+    public Juego() {
+        this.jugadores = new ArrayList<>();
+        this.cualidadesAJugar = new ArrayList<>();
+    }
+
+    public void aniadirCualidad(Cualidad c){
+        if (!this.cualidadesAJugar.contains(c)){
+            this.cualidadesAJugar.add(c);
+        }
+
+    }
+    public void aniadirJugador(Personaje p){
+        if (this.cualidadesAJugar.equals(p.getCualidades()) && !this.jugadores.contains(p)){
+            this.jugadores.add(p);
+        }
     }
 
 
-    public Personaje jugarRonda() {
-        Personaje jugadorElige = decidirTurnoArranque();
-        Personaje jugadorResponde;
-        if (jugadorElige.equals(this.p1)) {
-            jugadorResponde = this.p2;
-        } else {
-            jugadorResponde = this.p1;
-        }
-        for (int i = 0; i < this.p1.getCualidades().size(); i++) {
-            if (jugadorElige.elegirCualidad().equals(jugadorResponde.getCualidades().get(i))) {
-                Personaje ganador = decidirGanador(jugadorElige.elegirCualidad().getPuntuacion(), jugadorResponde.getCualidades().get(i).getPuntuacion(), jugadorElige, jugadorResponde);
-                if (jugadorElige.equals(ganador)){
-                    jugadorElige.getCualidades().remove(jugadorElige.elegirCualidad());
-                    return ganador;
-                }else if(ganador == null) {
-                    return ganador;
-                }else {
-                    jugadorResponde.getCualidades().remove(i);
-                    return ganador;
+    //Este podria ser un metodo solo para jugar una ronda y que el juego se base en jugar rondas hasta quedarse sin cualidades a comparar
+    public Personaje jugar() {
+        Cualidad cualidadAJugar = this.cualidadesAJugar.get(0); //La cualidad podria ser una cualidad random
+        Personaje ganador = null;
+        double puntajeMasAlto = 0;
+        for (int i = 0;i < this.jugadores.size();i++){
+            for (int j = 0;j < this.jugadores.get(i).getCualidades().size();i++){
+                if (cualidadAJugar.equals(this.jugadores.get(i).getCualidades().get(j)) && this.jugadores.get(i).getCualidades().get(j).getPuntuacion() > puntajeMasAlto){
+                    puntajeMasAlto = this.jugadores.get(i).getCualidades().get(j).getPuntuacion();
+                    ganador = this.jugadores.get(i);
                 }
             }
         }
-        return null;
-    }
-    public Personaje decidirTurnoArranque() {
-        double c = Math.floor(Math.random() * 2);
-        if (c == 1) {
-            return this.p1;
-        }
-        return this.p2;
+        return ganador;
     }
 
-    public Personaje decidirGanador(int cualidadElige, int cualidadResponde, Personaje jugadorElige, Personaje jugadorResponde) {
-        if (cualidadElige > cualidadResponde) {
-            return jugadorElige;
-        } else if (cualidadResponde > cualidadElige) {
-            return jugadorResponde;
-        }
-        return null;
-    }
-    public static void main(String[] args) {
-
-    }
 }

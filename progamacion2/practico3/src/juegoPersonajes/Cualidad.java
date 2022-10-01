@@ -8,18 +8,20 @@ public class Cualidad {
         this.nombre = nombre;
         this.puntuacion = puntuacion;
     }
+
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
+
     public int getPuntuacion() {
-        return this.puntuacion;
+        return puntuacion;
     }
+
     @Override
     public boolean equals(Object o){
         try {
             Cualidad c = (Cualidad) o;
-
-            return c.getNombre() == this.nombre;
+            return this.nombre == c.getNombre();
         }catch (Exception e){
             return false;
         }

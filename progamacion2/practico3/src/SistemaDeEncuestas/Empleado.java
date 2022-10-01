@@ -19,7 +19,6 @@ public class Empleado {
         if (encuesta.getDni() != -1){
             this.encuestasRealizadas.add(encuesta);
         }
-
     }
     public void cobrarPlus(){
         for (int i = 0;i < encuestasRealizadas.size();i++){
@@ -27,22 +26,22 @@ public class Empleado {
         }
     }
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public int getDni() {
-        return dni;
+        return this.dni;
     }
 
     public ArrayList<Encuesta> getEncuestasRealizadas() {
-        return new ArrayList<>(encuestasRealizadas);
+        return new ArrayList<>(this.encuestasRealizadas);
     }
 
     public double getSueldo() {
-        return sueldo;
+        return this.sueldo;
     }
 
     public double getPlusPorEncuesta() {
-        return plusPorEncuesta;
+        return this.plusPorEncuesta;
     }
 }

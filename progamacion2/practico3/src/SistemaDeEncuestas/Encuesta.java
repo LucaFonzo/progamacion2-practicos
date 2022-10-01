@@ -20,11 +20,9 @@ public class Encuesta{
     public int getDni() {
         return this.dni;
     }
-
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
-
     public void setDni(int dni) {
         this.dni = dni;
     }

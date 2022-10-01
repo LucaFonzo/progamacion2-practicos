@@ -9,6 +9,10 @@ public class Sensor {
         this.encendido = false;
     }
 
+    public boolean isEncendido(){
+        return this.encendido;
+    }
+
     public String getNombreZona(){
         return this.nombreZona;
     }

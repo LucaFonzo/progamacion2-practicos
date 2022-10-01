@@ -35,11 +35,11 @@ public class Contacto {
     public long calcularEdad(){return ChronoUnit.YEARS.between(this.fechaNac,LocalDateTime.now());}
 
     public boolean verificarRepetidoPorTelefono(Contacto c){
-        return this.numTelf == c.getNumTelf() && !(this.equals(c));
+        return this.numTelf == c.getNumTelf();
 
     }
 
     public boolean verificarRepetido(Contacto c){
-        return this.apellido == c.getApellido() && this.nombre == c.getNombre() && !(this.equals(c)) ;
+        return this.apellido == c.getApellido() && this.nombre == c.getNombre();
     }
 }
