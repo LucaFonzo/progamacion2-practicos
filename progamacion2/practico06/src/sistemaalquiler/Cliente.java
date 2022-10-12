@@ -14,8 +14,17 @@ public class Cliente {
         this.dni = dni;
         this.itemsAlquilados = new ArrayList<>();
     }
-
     public void aniadirItem(Item item){
         this.itemsAlquilados.add(item);
+    }
+
+
+    public boolean chequearAlquilerVencido(){
+        for (int i = 0;i < this.itemsAlquilados.size();i++){
+            if (this.itemsAlquilados.get(i).isVencido()){
+                return true;
+            }
+        }
+        return false;
     }
 }

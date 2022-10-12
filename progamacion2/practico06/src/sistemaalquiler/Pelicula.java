@@ -27,7 +27,13 @@ public class Pelicula extends Item{
     @Override
     public void alquilar(Cliente cliente,int fechaAlquiler,int fechaVencimiento     ) {
         if (this.sePuedeAlquilar()){
+            this.peliculas.get(0).setFechaAlquiler(fechaAlquiler);
+            this.peliculas.get(0).setFechaVencimiento(fechaVencimiento);
             cliente.aniadirItem(this.peliculas.get(0));
         }
+    }
+    @Override
+    public boolean isVencido(){
+        return this.getFechaVencimiento() > this.getFechaAlquiler();
     }
 }

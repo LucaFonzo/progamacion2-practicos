@@ -23,6 +23,8 @@ public class Vehiculo extends  Item{
     @Override
     public void alquilar(Cliente cliente,int fechaAlquiler,int fechaVencimiento) {
         if (this.sePuedeAlquilar()){
+            this.setFechaAlquiler(fechaAlquiler);
+            this.setFechaVencimiento(fechaVencimiento);
             cliente.aniadirItem(this);
             this.setClienteAsignado(cliente);
         }
@@ -35,5 +37,9 @@ public class Vehiculo extends  Item{
             return true;
         }
         return false;
+    }
+    @Override
+    public boolean isVencido(){
+        return this.getFechaVencimiento() > this.getFechaAlquiler();
     }
 }
