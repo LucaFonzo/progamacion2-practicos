@@ -1,5 +1,10 @@
 package sistemaalquiler;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.Year;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Pelicula extends Item{
@@ -25,15 +30,15 @@ public class Pelicula extends Item{
         return false;
     }
     @Override
-    public void alquilar(Cliente cliente,int fechaAlquiler,int fechaVencimiento     ) {
+    public void alquilar(Cliente cliente, long diasAlquilada) {
         if (this.sePuedeAlquilar()){
-            this.peliculas.get(0).setFechaAlquiler(fechaAlquiler);
-            this.peliculas.get(0).setFechaVencimiento(fechaVencimiento);
+            this.peliculas.get(0).setFechaAlquiler(LocalDate.now());
+            this.peliculas.get(0).setFechaVencimiento(LocalDate.now().plusDays(diasAlquilada));
             cliente.aniadirItem(this.peliculas.get(0));
         }
     }
     @Override
     public boolean isVencido(){
-        return this.getFechaVencimiento() > this.getFechaAlquiler();
+        return ChronoUnit.DAYS.between(this.getFechaAlquiler(),this.getFechaVencimiento()) > this.getDiasAlquiladas();
     }
 }

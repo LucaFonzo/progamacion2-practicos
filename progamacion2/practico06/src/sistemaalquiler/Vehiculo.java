@@ -1,5 +1,11 @@
 package sistemaalquiler;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.Year;
+import java.time.temporal.ChronoUnit;
+
 public class Vehiculo extends  Item{
     private String marca;
     private double kms;
@@ -21,10 +27,10 @@ public class Vehiculo extends  Item{
     }
 
     @Override
-    public void alquilar(Cliente cliente,int fechaAlquiler,int fechaVencimiento) {
+    public void alquilar(Cliente cliente, long diasAlquiladas) {
         if (this.sePuedeAlquilar()){
-            this.setFechaAlquiler(fechaAlquiler);
-            this.setFechaVencimiento(fechaVencimiento);
+            this.setFechaAlquiler(LocalDate.now());
+            this.setFechaVencimiento(LocalDate.from(LocalDate.now().plusDays(diasAlquiladas)));
             cliente.aniadirItem(this);
             this.setClienteAsignado(cliente);
         }
@@ -40,6 +46,6 @@ public class Vehiculo extends  Item{
     }
     @Override
     public boolean isVencido(){
-        return this.getFechaVencimiento() > this.getFechaAlquiler();
+        return ChronoUnit.DAYS.between(this.getFechaAlquiler(),this.getFechaVencimiento()) > this.getDiasAlquiladas();
     }
 }
