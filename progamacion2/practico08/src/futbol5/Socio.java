@@ -1,5 +1,6 @@
 package futbol5;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -7,14 +8,14 @@ public class Socio{
     private String nombre;
     private String apellido;
     private int edad;
-    private boolean tienePaga;
+    private ArrayList<Cuota> cuotasPagadas;
     private ArrayList<Alquiler> alquileres;
 
     public Socio(String nombre,String apellido,int edad){
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.tienePaga = false;
+        this.cuotasPagadas = new ArrayList<>();
         this.alquileres = new ArrayList<>();
     }
 
@@ -30,8 +31,12 @@ public class Socio{
         return edad;
     }
 
-    public boolean isTienePaga() {
-        return tienePaga;
+    public boolean tienePaga() {
+        Cuota ultimaCuota = this.cuotasPagadas.get(this.cuotasPagadas.size() - 1);
+        if (ultimaCuota.getFechaPago().getMonth().equals(LocalDateTime.now().getMonth())){
+            return true;
+        }
+        return false;
     }
 
     public boolean tieneAlquiler(Alquiler alquiler){
