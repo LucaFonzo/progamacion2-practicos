@@ -11,6 +11,10 @@ public class Enfermedad {
         this.estadosPatologicos = new ArrayList<>();
     }
 
+    public void addEstado(String estado){
+        this.estadosPatologicos.add(estado);
+    }
+
     public boolean productoTrata(ProductoQuimico producto){
         for (int i = 0;i < this.estadosPatologicos.size();i++){
             if (!producto.tieneEstadoPatologico(this.estadosPatologicos.get(i))){

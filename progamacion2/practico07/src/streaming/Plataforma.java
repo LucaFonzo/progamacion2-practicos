@@ -24,13 +24,11 @@ public class Plataforma {
         return resultado;
     }
 
-
     public void addPelicula(Pelicula pelicula){
         if (this.esRentable(pelicula)){
             this.peliculas.add(pelicula);
         }
     }
-
 
     public boolean esRentable(Pelicula pelicula){
         return this.politicas.cumple(pelicula);
