@@ -6,6 +6,6 @@ public class FiltroCuotaPaga extends Filtro{
 
     @Override
     public boolean cumple(Socio socio){
-        return socio.isTienePaga();
+        return socio.tienePaga();
     }
 }

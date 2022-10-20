@@ -13,11 +13,6 @@ public class Directorio extends  ElementoArchivo{
     }
 
     @Override
-    public boolean tieneNombre(String nombreBuscado) {
-        return this.getNombre().equals(nombreBuscado);
-    }
-
-    @Override
     public Integer getTamanio() {
         int resultado = 0;
         for (int i = 0;i < this.elementos.size();i++){

@@ -9,13 +9,6 @@ public class Link extends ElementoArchivo{
         super(nombre,fechaCreacion);
         this.ref = ref;
     }
-
-
-    @Override
-    public boolean tieneNombre(String nombreBuscado) {
-        return true;
-    }
-
     @Override
     public Integer getTamanio() {
         return 1;

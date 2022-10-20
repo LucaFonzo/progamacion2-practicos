@@ -20,6 +20,15 @@ public class ArchivoComprimido extends ElementoArchivo{
         }
         return false;
     }
+    @Override
+    public boolean tieneFecha(LocalDateTime fecha){
+        for (int i = 0;i < this.elementos.size();i++){
+            if (this.elementos.get(i).getFechaCreacion().isAfter(fecha)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public Integer getTamanio() {

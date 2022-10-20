@@ -13,6 +13,6 @@ public class FiltroFecha extends Filtro{
 
     @Override
     public boolean cumple(ElementoArchivo elementoArchivo) {
-        return false;
+        return elementoArchivo.tieneFecha(this.fechaMax);
     }
 }

@@ -8,12 +8,6 @@ public class ComparadorCumplioPago implements Comparator<Socio> {
 
     @Override
     public int compare(Socio o1, Socio o2) {
-        if (o1.tienePaga()){
-            return 1;
-        }else if (o2.tienePaga()){
-            return -1;
-        }else {
-            return 0;
-        }
+        return Boolean.compare(o1.tienePaga(),o2.tienePaga());
     }
 }

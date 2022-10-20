@@ -11,12 +11,16 @@ public abstract class ElementoArchivo {
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
     }
-
+    public boolean tieneFecha(LocalDateTime fechaCreacion){
+        return this.fechaCreacion.isAfter(fechaCreacion);
+    }
     public String getNombre(){
         return this.nombre;
     }
 
-    public abstract boolean tieneNombre(String nombreBuscado);
+    public  boolean tieneNombre(String nombreBuscado){
+        return this.nombre.equals(nombreBuscado);
+    }
     public abstract Integer getTamanio();
 
     public LocalDateTime getFechaCreacion(){
