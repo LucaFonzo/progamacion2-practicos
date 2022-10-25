@@ -1,5 +1,7 @@
 package sistemacensos;
 
+import sistemacensos.filtros.Filtro;
+
 import java.util.ArrayList;
 
 public abstract class ElementoRegion {
@@ -16,6 +18,8 @@ public abstract class ElementoRegion {
     public abstract Integer getCantidadHabitantes();
     public abstract Double getSuperficie();
     public abstract Double getMontoTotalIngresos();
+
+    public abstract ArrayList<ElementoRegion> buscar(Filtro filtro);
 
     public Double getIngresosPerCapita(){
         return this.getMontoTotalIngresos() / this.getCantidadHabitantes();

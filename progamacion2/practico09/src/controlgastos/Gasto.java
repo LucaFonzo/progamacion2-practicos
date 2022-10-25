@@ -1,5 +1,8 @@
 package controlgastos;
 
+import controlgastos.filtros.Filtro;
+import sistemacensos.ElementoRegion;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -31,5 +34,7 @@ public abstract class Gasto {
     public LocalDate getFecha() {
         return this.fecha;
     }
+
+    public abstract ArrayList<Gasto> buscar(Filtro filtro);
 
 }

@@ -1,5 +1,9 @@
 package sistemacensos;
 
+import sistemacensos.filtros.Filtro;
+
+import java.util.ArrayList;
+
 public class Comarca extends ElementoRegion implements Comparable<Comarca> {
     private Double superficie;
     private Integer cantidadHabitantes;
@@ -22,6 +26,14 @@ public class Comarca extends ElementoRegion implements Comparable<Comarca> {
 
     public Double getMontoTotalIngresos() {
         return this.montoTotalIngresos;
+    }
+
+    public ArrayList<ElementoRegion> buscar(Filtro filtro){
+        ArrayList<ElementoRegion> resultado = new ArrayList<>();
+        if(filtro.cumple(this)){
+            resultado.add(this);
+        }
+        return resultado;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package sistemacensos.filtros;
 
 import sistemacensos.Comarca;
+import sistemacensos.ElementoRegion;
 
 public class FiltroAnd extends Filtro{
     private Filtro filtro1;
@@ -11,7 +12,7 @@ public class FiltroAnd extends Filtro{
         this.filtro2 = filtro2;
     }
     @Override
-    public boolean cumple(Comarca comarca){
-        return this.filtro1.cumple(comarca) && this.filtro2.cumple(comarca);
+    public boolean cumple(ElementoRegion elementoRegion){
+        return this.filtro1.cumple(elementoRegion) && this.filtro2.cumple(elementoRegion);
     }
 }

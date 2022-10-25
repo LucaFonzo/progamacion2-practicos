@@ -1,6 +1,7 @@
 package sistemacensos.filtros;
 
 import sistemacensos.Comarca;
+import sistemacensos.ElementoRegion;
 
 public class FiltroNombre extends Filtro{
     private String nombreBuscado;
@@ -9,7 +10,7 @@ public class FiltroNombre extends Filtro{
         this.nombreBuscado = nombreBuscado;
     }
     @Override
-    public boolean cumple(Comarca comarca){
-        return comarca.getNombre().equals(this.nombreBuscado);
+    public boolean cumple(ElementoRegion elementoRegion){
+        return elementoRegion.getNombre().equals(this.nombreBuscado);
     }
 }

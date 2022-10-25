@@ -1,6 +1,7 @@
 package sistemacensos.filtros;
 
 import sistemacensos.Comarca;
+import sistemacensos.ElementoRegion;
 
 public class FiltroDensidad extends Filtro{
     private Double densidadMin;
@@ -9,7 +10,7 @@ public class FiltroDensidad extends Filtro{
         this.densidadMin = densidadMin;
     }
     @Override
-    public boolean cumple(Comarca comarca){
-        return comarca.getDensidadPoblacion() > this.densidadMin;
+    public boolean cumple(ElementoRegion elementoRegion){
+        return elementoRegion.getDensidadPoblacion() > this.densidadMin;
     }
 }

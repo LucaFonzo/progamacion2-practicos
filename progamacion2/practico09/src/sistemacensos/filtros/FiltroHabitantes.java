@@ -1,6 +1,7 @@
 package sistemacensos.filtros;
 
 import sistemacensos.Comarca;
+import sistemacensos.ElementoRegion;
 
 public class FiltroHabitantes extends Filtro{
     private Integer cantidadMin;
@@ -9,7 +10,7 @@ public class FiltroHabitantes extends Filtro{
         this.cantidadMin = cantidadMin;
     }
     @Override
-    public boolean cumple(Comarca comarca) {
-        return comarca.getCantidadHabitantes() > this.cantidadMin;
+    public boolean cumple(ElementoRegion elementoRegion) {
+        return elementoRegion.getCantidadHabitantes() > this.cantidadMin;
     }
 }
